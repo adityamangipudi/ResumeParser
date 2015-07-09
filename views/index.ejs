@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/bootstrap/dist/css/bootstrap.min.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %>! Please upload your Resume PDF!</p>
+    <div ng-app="fileUpload" ng-controller="MyCtrl">
+
+      Drop File:
+      <div ngf-drop ngf-select ng-model="files" class="drop-box"
+           ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
+           accept="application/pdf">Drop pdfs here or click to upload</div>
+      <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+      Files:
+      <ul>
+        <li ng-repeat="f in files" style="font:smaller">{{f.name}}</li>
+      </ul>
+      Uploaded Files:
+      <pre>
+        <ul>
+          <li ng-repeat="f in filesUploaded | orderBy:'timestamp':true " style="font:smaller">{{f.name}} -{{f.email[0]||'N/A'}} -{{f.phone[0]|| 'N/A'}} -{{f.timestamp | date: 'mediumDate'}} </li>
+        </ul>
+
+      </pre>
+      Upload Log:
+      <pre>{{log}}
+
+      </pre>
+    </div>
+    </div>
+    <script src="/angular/angular.min.js"></script>
+    <script src="ng-file-upload-shim/ng-file-upload-shim.min.js"></script> <!-- for no html5 browsers support -->
+    <script src="ng-file-upload/ng-file-upload.min.js"></script>
+    <script src="/jquery/dist/jquery.min.js"></script>
+    <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/javascripts/pdfParser.js"></script>
+
+
+  </body>
+</html>

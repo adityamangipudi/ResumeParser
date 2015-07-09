@@ -1,0 +1,21 @@
+{
+  "name": "PDFParser",
+  "version": "0.0.0",
+  "authors": [
+    "adityamangipudi <aditya.mangipudi@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.2",
+    "bootstrap": "~3.3.5",
+    "ng-file-upload": "~5.0.9",
+    "ng-file-upload-shim": "~5.0.9"
+  }
+}
